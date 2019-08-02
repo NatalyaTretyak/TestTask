@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+		<link rel="stylesheet" href="test.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+		<script type="text/javascript" src="test.js" ></script>
+  </head>
+
+  <body>
+    <div class="flex-container">
+      <div class="container" ng-app="table" ng-controller="myCtrl">
+        <h3>Permission</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <td><b>Sections</b></td>
+              <td>
+                <input
+                  type="checkbox"
+                  ng-model="view"
+                  ng-change="changeAllView(view)"
+                />Check all
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  ng-model="edit"
+                  ng-change="changeAllEdit(edit)"
+                  ng-disabled="editAllDisable"
+                />Check all
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+									ng-model="remove"
+									ng-change="changeAllRemove(remove)"
+                  ng-disabled="removeAllDisable"
+                />Check all
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in items">
+              <td>{{ item.section }}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  ng-model="item.permission.view"
+                  ng-change="showEdit(item)"
+                />View
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  ng-model="item.permission.edit"
+                  ng-disabled="!item.permission.view"
+                  ng-change="showRemove(item)"
+                />Edit
+              </td>
+              <td>
+                <input
+                  type="checkbox"
+                  ng-model="item.permission.remove"
+                  ng-disabled="!item.permission.edit"
+                  ng-change="changeSeparateRemove()"
+                />Remove
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="text-align: right">
+          <button class="button" type="submit" ng-click="save()">
+            Save
+          </button>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

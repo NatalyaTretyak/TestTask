@@ -1,0 +1,33 @@
+.flex-container {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 30%;
+}
+
+table {
+  border-collapse: collapse;
+  border-style: hidden;
+}
+
+td {
+  width: 100px;
+  height: 25px;
+}
+
+tbody tr {
+  border-bottom: 1px dashed black;
+}
+
+.button {
+  color: white;
+  background-color: #0057d8;
+  border: none;
+  padding: 9px 27px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 4px;
+  margin-top: 3%;
+}
