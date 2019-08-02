@@ -131,7 +131,7 @@ app.controller('myCtrl', function($scope) {
   };
 
   $scope.save = function() {
-    let serialItems = JSON.stringify(items);
+    let serialItems = angular.toJson(items);
     localStorage.setItem('items', serialItems);
   };
 });
